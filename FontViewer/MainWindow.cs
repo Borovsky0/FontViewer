@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Drawing;
 using System.Drawing.Text;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace FontViewer
@@ -14,7 +16,7 @@ namespace FontViewer
     {
         #region CONSTANTS
         readonly string[] allowedExtensions = { ".ttf", ".otf", ".ttc", ".otc" };       // Extensions for font files supported by the app
-        string[,] pangram = new string[,]                                               // String array with pangrams and their short names
+        readonly string[,] pangram = new string[,]                                               // String array with pangrams and their short names
         {
             {"RUS", "ENG", "1?*"},
             {"Съешь же ещё этих мягких французских булок, да выпей чаю.",
@@ -22,7 +24,6 @@ namespace FontViewer
             "1234567890.,!?@#$%&№`\"^<>*-—~+=:;({[]})\\|/"}
         };
 
-        const string DEFAULT_TEXT_SAMPLE = "Text sample";                               // Sample text displayed at app start
         const int DEFAULT_FONT_SIZE = 16;                                               // Font size displayed at app start
         #endregion
 
@@ -41,7 +42,8 @@ namespace FontViewer
         {
             InitializeComponent();
             DeleteNonExistFolders();
-            textSample.Text = DEFAULT_TEXT_SAMPLE;
+            SetLocale(Settings.Default.locale);
+
             sizeSlider.Value = DEFAULT_FONT_SIZE;
             sizeNumeric.Value = DEFAULT_FONT_SIZE;
             textSample.TextChanged += textSample_TextChanged;
@@ -49,12 +51,31 @@ namespace FontViewer
             sizeNumeric.ValueChanged += sizeNumeric_ValueChanged;
             colorButton.BackColor = Color.Black;
             bgcolorButton.BackColor = Color.White;
-            menuTabNameLength.Text = shortTabNames ? "Long tab names" : "Short tab names";
+            
             for (int i = 0; i < pangram.Length / 2; i++)
                 pangramComboBox.Items.Add(pangram[0, i]);
 
             foreach (string path in folders)
                 CreateTabPage(path, false);
+        }
+
+        private void SetLocale(string locale)
+        {
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(locale);
+            textSample.Text = Properties.Locales.Strings.textSample;
+            boldButton.Text = Properties.Locales.Strings.boldSymbol;
+            italicButton.Text = Properties.Locales.Strings.italicSymbol;
+            underlineButton.Text = Properties.Locales.Strings.underlineSymbol;
+            strikeoutButton.Text = Properties.Locales.Strings.strikeoutSymbol;
+            menuFolders.Text = Properties.Locales.Strings.menuFolders;
+            menuAddFolder.Text = Properties.Locales.Strings.menuAddFolder;
+            menuAddWindowsFolder.Text = Properties.Locales.Strings.menuAddWindowsFolder;
+            menuTabs.Text = Properties.Locales.Strings.menuTabs;
+            menuTabNameLength.Text = shortTabNames ? Properties.Locales.Strings.menuLongTabNames : Properties.Locales.Strings.menuShortTabNames;
+            menuCloseAllTabs.Text = Properties.Locales.Strings.menuCloseAllTabs;
+            menuLanguage.Text = Properties.Locales.Strings.menuLanguage;
+            menuLanguageEnglish.Text = Properties.Locales.Strings.menuLanguageEnglish;
+            menuLanguageRussian.Text = Properties.Locales.Strings.menuLanguageRussian;
         }
 
         #endregion
@@ -105,7 +126,7 @@ namespace FontViewer
 
         #endregion
 
-        #region TAB PAGE METHODS
+        #region TAB PAGE AND FOLDERS METHODS
 
         private void CreateTabPage(string name, bool select) // Create tab page and select it if select true
         {
@@ -118,16 +139,12 @@ namespace FontViewer
                 tabControl.SelectedTab = tabPage;
         }
 
-        private void DeleteTabPage(int index) // Delete tab page and
+        private void DeleteTabPage(int index) // Delete tab page and save changes in settings
         {
             folders.RemoveAt(index);
             SaveFoldersInSettings();
             tabControl.TabPages.RemoveAt(index);
         }
-
-        #endregion
-
-        #region FOLDER METHODS
 
         private void AddFolder(string path) // Add tab page with folder and save all folders in settings
         {
@@ -264,7 +281,7 @@ namespace FontViewer
 
         #region TAB CONTROL EVENTS
 
-        private void tabControl_MouseUp(object sender, MouseEventArgs e)
+        private void tabControl_MouseUp(object sender, MouseEventArgs e) // Right click on tab close it
         {
             if (e.Button == MouseButtons.Right)
                 for (int i = 0; i < tabControl.TabCount; i++)
@@ -288,7 +305,7 @@ namespace FontViewer
         #endregion
 
         #region MENU EVENTS
-        private void menuAddFolder_Click(object sender, EventArgs e) // rework
+        private void menuAddFolder_Click(object sender, EventArgs e)
         {
             if (addFolderDialog.ShowDialog() == DialogResult.OK)
                 AddFolder(addFolderDialog.SelectedPath);
@@ -303,14 +320,14 @@ namespace FontViewer
         {
             if (shortTabNames)
             {
-                menuTabNameLength.Text = "Short tab names";
+                menuTabNameLength.Text = Properties.Locales.Strings.menuShortTabNames;
                 for (int i = 0; i < folders.Count; i++)
                     tabControl.TabPages[i].Text = (folders[i]);
                 shortTabNames = false;
             }
             else
             {
-                menuTabNameLength.Text = "Long tab names";
+                menuTabNameLength.Text = Properties.Locales.Strings.menuLongTabNames;
                 for (int i = 0; i < folders.Count; i++)
                     tabControl.TabPages[i].Text = GetShortName(folders[i]);
                 shortTabNames = true;
@@ -323,6 +340,20 @@ namespace FontViewer
         {
             for (int i = tabControl.TabPages.Count - 1; i >= 0; i--)
                 DeleteTabPage(i);
+        }
+
+        private void menuLanguageEnglish_Click(object sender, EventArgs e)
+        {
+            SetLocale("en");
+            Settings.Default.locale = "en";
+            Settings.Default.Save();
+        }
+
+        private void menuLanguageRussian_Click(object sender, EventArgs e)
+        {
+            SetLocale("ru");
+            Settings.Default.locale = "ru";
+            Settings.Default.Save();
         }
 
         #endregion

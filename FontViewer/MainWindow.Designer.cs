@@ -44,6 +44,9 @@
             this.menuTabs = new System.Windows.Forms.MenuItem();
             this.menuTabNameLength = new System.Windows.Forms.MenuItem();
             this.menuCloseAllTabs = new System.Windows.Forms.MenuItem();
+            this.menuLanguage = new System.Windows.Forms.MenuItem();
+            this.menuLanguageEnglish = new System.Windows.Forms.MenuItem();
+            this.menuLanguageRussian = new System.Windows.Forms.MenuItem();
             this.addFolderDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.pangramComboBox = new System.Windows.Forms.ComboBox();
@@ -99,6 +102,7 @@
             this.textSample.Name = "textSample";
             this.textSample.Size = new System.Drawing.Size(874, 43);
             this.textSample.TabIndex = 4;
+            this.textSample.Text = "textSample";
             // 
             // colorButton
             // 
@@ -160,7 +164,8 @@
             // 
             this.menuDialog.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuFolders,
-            this.menuTabs});
+            this.menuTabs,
+            this.menuLanguage});
             // 
             // menuFolders
             // 
@@ -168,18 +173,18 @@
             this.menuFolders.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuAddFolder,
             this.menuAddWindowsFolder});
-            this.menuFolders.Text = "Folders";
+            this.menuFolders.Text = "folders";
             // 
             // menuAddFolder
             // 
             this.menuAddFolder.Index = 0;
-            this.menuAddFolder.Text = "Add Folder";
+            this.menuAddFolder.Text = "addFolder";
             this.menuAddFolder.Click += new System.EventHandler(this.menuAddFolder_Click);
             // 
             // menuAddWindowsFolder
             // 
             this.menuAddWindowsFolder.Index = 1;
-            this.menuAddWindowsFolder.Text = "Add Windows folder";
+            this.menuAddWindowsFolder.Text = "addWindowsFolder";
             this.menuAddWindowsFolder.Click += new System.EventHandler(this.menuAddWindowsFolder_Click);
             // 
             // menuTabs
@@ -188,19 +193,39 @@
             this.menuTabs.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuTabNameLength,
             this.menuCloseAllTabs});
-            this.menuTabs.Text = "Tabs";
+            this.menuTabs.Text = "tabs";
             // 
             // menuTabNameLength
             // 
             this.menuTabNameLength.Index = 0;
-            this.menuTabNameLength.Text = "Short tab names";
+            this.menuTabNameLength.Text = "shortTabNames";
             this.menuTabNameLength.Click += new System.EventHandler(this.menuTabNameLength_Click);
             // 
             // menuCloseAllTabs
             // 
             this.menuCloseAllTabs.Index = 1;
-            this.menuCloseAllTabs.Text = "Close all tabs";
+            this.menuCloseAllTabs.Text = "closeAllTabs";
             this.menuCloseAllTabs.Click += new System.EventHandler(this.menuCloseAllTabs_Click);
+            // 
+            // menuLanguage
+            // 
+            this.menuLanguage.Index = 2;
+            this.menuLanguage.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuLanguageEnglish,
+            this.menuLanguageRussian});
+            this.menuLanguage.Text = "language";
+            // 
+            // menuLanguageEnglish
+            // 
+            this.menuLanguageEnglish.Index = 0;
+            this.menuLanguageEnglish.Text = "english";
+            this.menuLanguageEnglish.Click += new System.EventHandler(this.menuLanguageEnglish_Click);
+            // 
+            // menuLanguageRussian
+            // 
+            this.menuLanguageRussian.Index = 1;
+            this.menuLanguageRussian.Text = "russian";
+            this.menuLanguageRussian.Click += new System.EventHandler(this.menuLanguageRussian_Click);
             // 
             // searchBox
             // 
@@ -332,7 +357,7 @@
             this.Menu = this.menuDialog;
             this.MinimumSize = new System.Drawing.Size(480, 360);
             this.Name = "MainWindow";
-            this.Text = "Font Viewer";
+            this.Text = "FontViewer";
             ((System.ComponentModel.ISupportInitialize)(this.sizeSlider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeNumeric)).EndInit();
             this.ResumeLayout(false);
@@ -364,6 +389,9 @@
         private System.Windows.Forms.Button underlineButton;
         private System.Windows.Forms.Button strikeoutButton;
         private System.Windows.Forms.Button clearSearchBox;
+        private System.Windows.Forms.MenuItem menuLanguage;
+        private System.Windows.Forms.MenuItem menuLanguageEnglish;
+        private System.Windows.Forms.MenuItem menuLanguageRussian;
     }
 }
 
