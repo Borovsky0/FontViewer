@@ -55,6 +55,7 @@
             this.underlineButton = new System.Windows.Forms.Button();
             this.strikeoutButton = new System.Windows.Forms.Button();
             this.clearSearchBox = new System.Windows.Forms.Button();
+            this.countLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sizeSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeNumeric)).BeginInit();
             this.SuspendLayout();
@@ -108,7 +109,7 @@
             // 
             this.colorButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.colorButton.BackColor = System.Drawing.Color.White;
-            this.colorButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.colorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colorButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.colorButton.Location = new System.Drawing.Point(1205, 590);
             this.colorButton.Margin = new System.Windows.Forms.Padding(5);
@@ -149,13 +150,13 @@
             // 
             this.bgcolorButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bgcolorButton.BackColor = System.Drawing.Color.White;
-            this.bgcolorButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bgcolorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bgcolorButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bgcolorButton.Location = new System.Drawing.Point(1205, 536);
             this.bgcolorButton.Margin = new System.Windows.Forms.Padding(5);
             this.bgcolorButton.Name = "bgcolorButton";
             this.bgcolorButton.Size = new System.Drawing.Size(43, 43);
-            this.bgcolorButton.TabIndex = 8;
+            this.bgcolorButton.TabIndex = 99;
             this.bgcolorButton.TabStop = false;
             this.bgcolorButton.UseVisualStyleBackColor = false;
             this.bgcolorButton.Click += new System.EventHandler(this.bgcolorButton_Click);
@@ -238,13 +239,14 @@
             this.searchBox.Location = new System.Drawing.Point(14, 14);
             this.searchBox.Margin = new System.Windows.Forms.Padding(5);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(1181, 43);
+            this.searchBox.Size = new System.Drawing.Size(1089, 43);
             this.searchBox.TabIndex = 1;
             this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             // 
             // pangramComboBox
             // 
             this.pangramComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pangramComboBox.BackColor = System.Drawing.SystemColors.Window;
             this.pangramComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.pangramComboBox.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pangramComboBox.FormattingEnabled = true;
@@ -259,7 +261,9 @@
             // 
             this.boldButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.boldButton.BackColor = System.Drawing.Color.White;
-            this.boldButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.boldButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
+            this.boldButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.boldButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.boldButton.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boldButton.Location = new System.Drawing.Point(898, 590);
             this.boldButton.Margin = new System.Windows.Forms.Padding(5);
@@ -275,7 +279,9 @@
             // 
             this.italicButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.italicButton.BackColor = System.Drawing.Color.White;
-            this.italicButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.italicButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
+            this.italicButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.italicButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.italicButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.italicButton.Location = new System.Drawing.Point(950, 590);
             this.italicButton.Margin = new System.Windows.Forms.Padding(5);
@@ -291,7 +297,9 @@
             // 
             this.underlineButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.underlineButton.BackColor = System.Drawing.Color.White;
-            this.underlineButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.underlineButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
+            this.underlineButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.underlineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.underlineButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.underlineButton.Location = new System.Drawing.Point(1004, 590);
             this.underlineButton.Margin = new System.Windows.Forms.Padding(5);
@@ -307,7 +315,9 @@
             // 
             this.strikeoutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.strikeoutButton.BackColor = System.Drawing.Color.White;
-            this.strikeoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.strikeoutButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
+            this.strikeoutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.strikeoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.strikeoutButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.strikeoutButton.Location = new System.Drawing.Point(1057, 590);
             this.strikeoutButton.Margin = new System.Windows.Forms.Padding(5);
@@ -323,7 +333,8 @@
             // 
             this.clearSearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.clearSearchBox.BackColor = System.Drawing.Color.White;
-            this.clearSearchBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.clearSearchBox.FlatAppearance.BorderSize = 0;
+            this.clearSearchBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearSearchBox.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.clearSearchBox.Location = new System.Drawing.Point(1205, 14);
             this.clearSearchBox.Margin = new System.Windows.Forms.Padding(5);
@@ -334,11 +345,23 @@
             this.clearSearchBox.UseVisualStyleBackColor = false;
             this.clearSearchBox.Click += new System.EventHandler(this.clearSearchBox_Click);
             // 
+            // countLabel
+            // 
+            this.countLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.countLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.countLabel.Location = new System.Drawing.Point(1111, 14);
+            this.countLabel.Name = "countLabel";
+            this.countLabel.Size = new System.Drawing.Size(86, 43);
+            this.countLabel.TabIndex = 100;
+            this.countLabel.Text = "0";
+            this.countLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1262, 647);
+            this.Controls.Add(this.countLabel);
             this.Controls.Add(this.clearSearchBox);
             this.Controls.Add(this.strikeoutButton);
             this.Controls.Add(this.underlineButton);
@@ -392,6 +415,7 @@
         private System.Windows.Forms.MenuItem menuLanguage;
         private System.Windows.Forms.MenuItem menuLanguageEnglish;
         private System.Windows.Forms.MenuItem menuLanguageRussian;
+        private System.Windows.Forms.Label countLabel;
     }
 }
 

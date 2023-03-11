@@ -114,6 +114,7 @@ namespace FontViewer
                     tempSearchedItems.Add(i);
                 }
             }
+            countLabel.Text = Convert.ToString(tempSearchedItems.Count);
             panel.SearchedItems = tempSearchedItems;
         }
 
@@ -141,6 +142,7 @@ namespace FontViewer
 
         private void DeleteTabPage(int index) // Delete tab page and save changes in settings
         {
+            countLabel.Text = "0";
             folders.RemoveAt(index);
             SaveFoldersInSettings();
             tabControl.TabPages.RemoveAt(index);
@@ -205,24 +207,24 @@ namespace FontViewer
         private void sizeSlider_Scroll(object sender, EventArgs e)
         {
             sizeNumeric.Value = sizeSlider.Value;
-            panel.FontSize = sizeSlider.Value;
+            if (panel != null) panel.FontSize = sizeSlider.Value;
 
         }
 
         private void sizeNumeric_ValueChanged(object sender, EventArgs e)
         {
             sizeSlider.Value = (int)sizeNumeric.Value;
-            panel.FontSize = sizeSlider.Value;
+            if (panel != null) panel.FontSize = sizeSlider.Value;
         }
 
         private void textSample_TextChanged(object sender, EventArgs e)
         {
-            panel.TextSample = textSample.Text;
+            if (panel != null) panel.TextSample = textSample.Text;
         }
 
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
-            UpdateSearch();
+            if (panel != null) UpdateSearch();
         }
 
         private void pangramComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -242,14 +244,14 @@ namespace FontViewer
         {
             colorDialog.ShowDialog();
             colorButton.BackColor = colorDialog.Color;
-            panel.TextColor = colorDialog.Color;
+            if (panel != null) panel.TextColor = colorDialog.Color;
         }
 
         private void bgcolorButton_Click(object sender, EventArgs e)
         {
             colorDialog.ShowDialog();
             bgcolorButton.BackColor = colorDialog.Color;
-            panel.BackgroundColor = colorDialog.Color;
+            if (panel != null) panel.BackgroundColor = colorDialog.Color;
         }
 
         private void clearSearchBox_Click(object sender, EventArgs e)
