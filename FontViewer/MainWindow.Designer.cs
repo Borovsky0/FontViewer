@@ -66,11 +66,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabControl.Location = new System.Drawing.Point(14, 67);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(5);
+            this.tabControl.Location = new System.Drawing.Point(14, 60);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1235, 459);
+            this.tabControl.Size = new System.Drawing.Size(1234, 481);
             this.tabControl.TabIndex = 2;
             this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl_Selected);
             this.tabControl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tabControl_MouseUp);
@@ -80,12 +80,12 @@
             this.sizeSlider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.sizeSlider.AutoSize = false;
-            this.sizeSlider.Location = new System.Drawing.Point(14, 536);
-            this.sizeSlider.Margin = new System.Windows.Forms.Padding(5);
+            this.sizeSlider.Location = new System.Drawing.Point(14, 551);
+            this.sizeSlider.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.sizeSlider.Maximum = 120;
             this.sizeSlider.Minimum = 5;
             this.sizeSlider.Name = "sizeSlider";
-            this.sizeSlider.Size = new System.Drawing.Size(1086, 43);
+            this.sizeSlider.Size = new System.Drawing.Size(1106, 36);
             this.sizeSlider.TabIndex = 3;
             this.sizeSlider.TickFrequency = 0;
             this.sizeSlider.TickStyle = System.Windows.Forms.TickStyle.None;
@@ -98,10 +98,10 @@
             this.textSample.BackColor = System.Drawing.Color.White;
             this.textSample.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textSample.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textSample.Location = new System.Drawing.Point(14, 590);
-            this.textSample.Margin = new System.Windows.Forms.Padding(5);
+            this.textSample.Location = new System.Drawing.Point(14, 597);
+            this.textSample.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textSample.Name = "textSample";
-            this.textSample.Size = new System.Drawing.Size(874, 43);
+            this.textSample.Size = new System.Drawing.Size(922, 36);
             this.textSample.TabIndex = 4;
             this.textSample.Text = "textSample";
             // 
@@ -111,10 +111,10 @@
             this.colorButton.BackColor = System.Drawing.Color.White;
             this.colorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colorButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.colorButton.Location = new System.Drawing.Point(1205, 590);
-            this.colorButton.Margin = new System.Windows.Forms.Padding(5);
+            this.colorButton.Location = new System.Drawing.Point(1212, 597);
+            this.colorButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.colorButton.Name = "colorButton";
-            this.colorButton.Size = new System.Drawing.Size(43, 43);
+            this.colorButton.Size = new System.Drawing.Size(36, 36);
             this.colorButton.TabIndex = 99;
             this.colorButton.TabStop = false;
             this.colorButton.UseVisualStyleBackColor = false;
@@ -124,8 +124,8 @@
             // 
             this.sizeNumeric.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.sizeNumeric.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sizeNumeric.Location = new System.Drawing.Point(1110, 537);
-            this.sizeNumeric.Margin = new System.Windows.Forms.Padding(5);
+            this.sizeNumeric.Location = new System.Drawing.Point(1130, 551);
+            this.sizeNumeric.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.sizeNumeric.Maximum = new decimal(new int[] {
             120,
             0,
@@ -137,7 +137,7 @@
             0,
             0});
             this.sizeNumeric.Name = "sizeNumeric";
-            this.sizeNumeric.Size = new System.Drawing.Size(85, 43);
+            this.sizeNumeric.Size = new System.Drawing.Size(72, 36);
             this.sizeNumeric.TabIndex = 99;
             this.sizeNumeric.TabStop = false;
             this.sizeNumeric.Value = new decimal(new int[] {
@@ -152,10 +152,10 @@
             this.bgcolorButton.BackColor = System.Drawing.Color.White;
             this.bgcolorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bgcolorButton.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bgcolorButton.Location = new System.Drawing.Point(1205, 536);
-            this.bgcolorButton.Margin = new System.Windows.Forms.Padding(5);
+            this.bgcolorButton.Location = new System.Drawing.Point(1212, 551);
+            this.bgcolorButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.bgcolorButton.Name = "bgcolorButton";
-            this.bgcolorButton.Size = new System.Drawing.Size(43, 43);
+            this.bgcolorButton.Size = new System.Drawing.Size(36, 36);
             this.bgcolorButton.TabIndex = 99;
             this.bgcolorButton.TabStop = false;
             this.bgcolorButton.UseVisualStyleBackColor = false;
@@ -237,9 +237,9 @@
             this.searchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchBox.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBox.Location = new System.Drawing.Point(14, 14);
-            this.searchBox.Margin = new System.Windows.Forms.Padding(5);
+            this.searchBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(1089, 43);
+            this.searchBox.Size = new System.Drawing.Size(1110, 36);
             this.searchBox.TabIndex = 1;
             this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             // 
@@ -250,10 +250,10 @@
             this.pangramComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.pangramComboBox.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pangramComboBox.FormattingEnabled = true;
-            this.pangramComboBox.Location = new System.Drawing.Point(1110, 590);
-            this.pangramComboBox.Margin = new System.Windows.Forms.Padding(5);
+            this.pangramComboBox.Location = new System.Drawing.Point(1130, 596);
+            this.pangramComboBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.pangramComboBox.Name = "pangramComboBox";
-            this.pangramComboBox.Size = new System.Drawing.Size(87, 45);
+            this.pangramComboBox.Size = new System.Drawing.Size(72, 38);
             this.pangramComboBox.TabIndex = 9;
             this.pangramComboBox.SelectedIndexChanged += new System.EventHandler(this.pangramComboBox_SelectedIndexChanged);
             // 
@@ -265,10 +265,10 @@
             this.boldButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.boldButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.boldButton.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boldButton.Location = new System.Drawing.Point(898, 590);
-            this.boldButton.Margin = new System.Windows.Forms.Padding(5);
+            this.boldButton.Location = new System.Drawing.Point(946, 597);
+            this.boldButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.boldButton.Name = "boldButton";
-            this.boldButton.Size = new System.Drawing.Size(43, 43);
+            this.boldButton.Size = new System.Drawing.Size(36, 36);
             this.boldButton.TabIndex = 5;
             this.boldButton.Tag = "Unpressed";
             this.boldButton.Text = "B";
@@ -283,10 +283,10 @@
             this.italicButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.italicButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.italicButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.italicButton.Location = new System.Drawing.Point(950, 590);
-            this.italicButton.Margin = new System.Windows.Forms.Padding(5);
+            this.italicButton.Location = new System.Drawing.Point(992, 597);
+            this.italicButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.italicButton.Name = "italicButton";
-            this.italicButton.Size = new System.Drawing.Size(43, 43);
+            this.italicButton.Size = new System.Drawing.Size(36, 36);
             this.italicButton.TabIndex = 6;
             this.italicButton.Tag = "Unpressed";
             this.italicButton.Text = "I";
@@ -301,10 +301,10 @@
             this.underlineButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.underlineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.underlineButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.underlineButton.Location = new System.Drawing.Point(1004, 590);
-            this.underlineButton.Margin = new System.Windows.Forms.Padding(5);
+            this.underlineButton.Location = new System.Drawing.Point(1038, 597);
+            this.underlineButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.underlineButton.Name = "underlineButton";
-            this.underlineButton.Size = new System.Drawing.Size(43, 43);
+            this.underlineButton.Size = new System.Drawing.Size(36, 36);
             this.underlineButton.TabIndex = 7;
             this.underlineButton.Tag = "Unpressed";
             this.underlineButton.Text = "U";
@@ -319,10 +319,10 @@
             this.strikeoutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
             this.strikeoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.strikeoutButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.strikeoutButton.Location = new System.Drawing.Point(1057, 590);
-            this.strikeoutButton.Margin = new System.Windows.Forms.Padding(5);
+            this.strikeoutButton.Location = new System.Drawing.Point(1084, 597);
+            this.strikeoutButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.strikeoutButton.Name = "strikeoutButton";
-            this.strikeoutButton.Size = new System.Drawing.Size(43, 43);
+            this.strikeoutButton.Size = new System.Drawing.Size(36, 36);
             this.strikeoutButton.TabIndex = 8;
             this.strikeoutButton.Tag = "Unpressed";
             this.strikeoutButton.Text = "S";
@@ -336,10 +336,10 @@
             this.clearSearchBox.FlatAppearance.BorderSize = 0;
             this.clearSearchBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearSearchBox.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clearSearchBox.Location = new System.Drawing.Point(1205, 14);
-            this.clearSearchBox.Margin = new System.Windows.Forms.Padding(5);
+            this.clearSearchBox.Location = new System.Drawing.Point(1212, 14);
+            this.clearSearchBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.clearSearchBox.Name = "clearSearchBox";
-            this.clearSearchBox.Size = new System.Drawing.Size(43, 43);
+            this.clearSearchBox.Size = new System.Drawing.Size(36, 36);
             this.clearSearchBox.TabIndex = 10;
             this.clearSearchBox.Text = "✕";
             this.clearSearchBox.UseVisualStyleBackColor = false;
@@ -347,18 +347,20 @@
             // 
             // countLabel
             // 
+            this.countLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.countLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.countLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.countLabel.Location = new System.Drawing.Point(1111, 14);
+            this.countLabel.Location = new System.Drawing.Point(1132, 14);
             this.countLabel.Name = "countLabel";
-            this.countLabel.Size = new System.Drawing.Size(86, 43);
+            this.countLabel.Size = new System.Drawing.Size(72, 36);
             this.countLabel.TabIndex = 100;
             this.countLabel.Text = "0";
             this.countLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainWindow
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1262, 647);
             this.Controls.Add(this.countLabel);
@@ -378,7 +380,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Menu = this.menuDialog;
-            this.MinimumSize = new System.Drawing.Size(480, 360);
+            this.MinimumSize = new System.Drawing.Size(480, 358);
             this.Name = "MainWindow";
             this.Text = "FontViewer";
             ((System.ComponentModel.ISupportInitialize)(this.sizeSlider)).EndInit();
