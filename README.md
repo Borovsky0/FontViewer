@@ -2,7 +2,7 @@
 
 *Font viewer app with a folder system*
 
-![screenshot](https://user-images.githubusercontent.com/91292282/224448470-c0b421d4-98be-41b9-90e9-527199a93aba.png)
+![screenshot](https://user-images.githubusercontent.com/91292282/225484645-bf19e44f-9474-4e28-b949-1076ab273a0c.png)
 
 ### Features
 *Folder system, no need to install fonts in Windows*
