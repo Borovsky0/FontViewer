@@ -29,10 +29,12 @@ namespace FontViewer
 
         #region REQUIRED VARIABLES
         bool shortTabNames = Settings.Default.shortTabNames;                            // Setting for short tab page names
-        List<string> folders = Settings.Default.fontFolders.Cast<string>().ToList();    // Setting for folder path
+        string[] tabNames = new string[2];                                              // Array for save menu short/long tab names text [0] for short, [1] for long
 
+        List<string> folders = Settings.Default.fontFolders.Cast<string>().ToList();    // Setting for folder path
         PrivateFontCollection pfc;                                                      // Private font collection for storing the fonts of the currently open folder
         int fontStyle = 0;                                                              // Stores information about the font style (enum System.Drawing.FontStyle)
+
         FVPanel panel;                                                                  // Custom panel element used to display fonts
         #endregion
 
@@ -72,11 +74,13 @@ namespace FontViewer
             menuAddFolder.Text = lm.Get("menuAddFolder");
             menuAddWindowsFolder.Text = lm.Get("menuAddWindowsFolder");
             menuTabs.Text = lm.Get("menuTabs");
-            menuTabNameLength.Text = shortTabNames ? lm.Get("menuLongTabName") : lm.Get("menuShortTabNames");
+            menuTabNameLength.Text = shortTabNames ? lm.Get("menuLongTabNames") : lm.Get("menuShortTabNames");
             menuCloseAllTabs.Text = lm.Get("menuCloseAllTabs");
             menuLanguage.Text = lm.Get("menuLanguage");
             menuLanguageEnglish.Text = lm.Get("menuLanguageEnglish");
             menuLanguageRussian.Text = lm.Get("menuLanguageRussian");
+            tabNames[0] = lm.Get("menuShortTabNames");
+            tabNames[1] = lm.Get("menuLongTabNames");
         }
 
         #endregion
@@ -323,14 +327,14 @@ namespace FontViewer
         {
             if (shortTabNames)
             {
-                //menuTabNameLength.Text = Properties.Locales.Strings.menuShortTabNames;
+                menuTabNameLength.Text = tabNames[0];
                 for (int i = 0; i < folders.Count; i++)
                     tabControl.TabPages[i].Text = (folders[i]);
                 shortTabNames = false;
             }
             else
             {
-                //menuTabNameLength.Text = Properties.Locales.Strings.menuLongTabNames;
+                menuTabNameLength.Text = tabNames[1];
                 for (int i = 0; i < folders.Count; i++)
                     tabControl.TabPages[i].Text = GetShortName(folders[i]);
                 shortTabNames = true;
