@@ -62,20 +62,21 @@ namespace FontViewer
         private void SetLocale(string locale)
         {
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(locale);
-            textSample.Text = Properties.Locales.Strings.textSample;
-            boldButton.Text = Properties.Locales.Strings.boldSymbol;
-            italicButton.Text = Properties.Locales.Strings.italicSymbol;
-            underlineButton.Text = Properties.Locales.Strings.underlineSymbol;
-            strikeoutButton.Text = Properties.Locales.Strings.strikeoutSymbol;
-            menuFolders.Text = Properties.Locales.Strings.menuFolders;
-            menuAddFolder.Text = Properties.Locales.Strings.menuAddFolder;
-            menuAddWindowsFolder.Text = Properties.Locales.Strings.menuAddWindowsFolder;
-            menuTabs.Text = Properties.Locales.Strings.menuTabs;
-            menuTabNameLength.Text = shortTabNames ? Properties.Locales.Strings.menuLongTabNames : Properties.Locales.Strings.menuShortTabNames;
-            menuCloseAllTabs.Text = Properties.Locales.Strings.menuCloseAllTabs;
-            menuLanguage.Text = Properties.Locales.Strings.menuLanguage;
-            menuLanguageEnglish.Text = Properties.Locales.Strings.menuLanguageEnglish;
-            menuLanguageRussian.Text = Properties.Locales.Strings.menuLanguageRussian;
+            LocaleManager lm = new LocaleManager();
+            textSample.Text = lm.Get("textSample");
+            boldButton.Text = lm.Get("boldSymbol");
+            italicButton.Text = lm.Get("italicSymbol");
+            underlineButton.Text = lm.Get("underlineSymbol");
+            strikeoutButton.Text = lm.Get("strikeoutSymbol");
+            menuFolders.Text = lm.Get("menuFolders");
+            menuAddFolder.Text = lm.Get("menuAddFolder");
+            menuAddWindowsFolder.Text = lm.Get("menuAddWindowsFolder");
+            menuTabs.Text = lm.Get("menuTabs");
+            menuTabNameLength.Text = shortTabNames ? lm.Get("menuLongTabName") : lm.Get("menuShortTabNames");
+            menuCloseAllTabs.Text = lm.Get("menuCloseAllTabs");
+            menuLanguage.Text = lm.Get("menuLanguage");
+            menuLanguageEnglish.Text = lm.Get("menuLanguageEnglish");
+            menuLanguageRussian.Text = lm.Get("menuLanguageRussian");
         }
 
         #endregion
@@ -322,14 +323,14 @@ namespace FontViewer
         {
             if (shortTabNames)
             {
-                menuTabNameLength.Text = Properties.Locales.Strings.menuShortTabNames;
+                //menuTabNameLength.Text = Properties.Locales.Strings.menuShortTabNames;
                 for (int i = 0; i < folders.Count; i++)
                     tabControl.TabPages[i].Text = (folders[i]);
                 shortTabNames = false;
             }
             else
             {
-                menuTabNameLength.Text = Properties.Locales.Strings.menuLongTabNames;
+                //menuTabNameLength.Text = Properties.Locales.Strings.menuLongTabNames;
                 for (int i = 0; i < folders.Count; i++)
                     tabControl.TabPages[i].Text = GetShortName(folders[i]);
                 shortTabNames = true;

@@ -62,7 +62,7 @@ namespace FontViewer
         {
             width = fontSize * textSample.Length * 2; // Almost all letters fit in (2x3) * fontSize box
             height = fontSize * 3;
-            if (width < Size.Width) width = Size.Width; // widthCorrection a horizontal scroll appears without the ability to move
+            if (width < Size.Width) width = Size.Width; 
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -70,7 +70,8 @@ namespace FontViewer
             base.OnPaint(e);
 
             CalcSize();
-            AutoScrollMinSize = new Size(width - widthCorrection, (height + nameHeight) * searchedItems.Count); // Set scroll size
+            // widthCorrection is necessary because there is a horizontal scroll without the ability to move
+            AutoScrollMinSize = new Size(width - widthCorrection, (height + nameHeight) * searchedItems.Count); 
 
             e.Graphics.FillRegion(new SolidBrush(backgroundColor), new Region(e.ClipRectangle));
             e.Graphics.TranslateTransform(AutoScrollPosition.X, AutoScrollPosition.Y); // Move graphics to scroll position
