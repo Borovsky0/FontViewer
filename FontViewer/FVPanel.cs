@@ -12,7 +12,7 @@ namespace FontViewer
         private Color textColor;
         private string textSample;
         private List<int> searchedItems = new List<int>();
-        private int fontStyle;
+        private FontStyle fontStyle;
         private int fontSize;
 
         private int height;
@@ -21,7 +21,7 @@ namespace FontViewer
         private int nameHeight = 35;
         private int widthCorrection = 30;
 
-        public FVPanel(PrivateFontCollection PFC, Color BackgroundColor, Color TextColor, string TextSample, List<int> SearchedItems, int FontStyle, int FontSize)
+        public FVPanel(PrivateFontCollection PFC, Color BackgroundColor, Color TextColor, string TextSample, List<int> SearchedItems, FontStyle FontStyle, int FontSize)
         {
             Name = "fvpanel";
             AutoScroll = true;
@@ -49,7 +49,7 @@ namespace FontViewer
 
         public List<int> SearchedItems { get { return searchedItems; } set { searchedItems = value; Refresh(); } }
 
-        public int FontStyle { get { return fontStyle; } set { fontStyle = value; Refresh(); } }
+        public FontStyle FontStyle { get { return fontStyle; } set { fontStyle = value; Refresh(); } }
 
         public int FontSize { set { fontSize = value; Refresh(); } }
 

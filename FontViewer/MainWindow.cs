@@ -16,15 +16,13 @@ namespace FontViewer
     {
         #region CONSTANTS
         readonly string[] allowedExtensions = { ".ttf", ".otf", ".ttc", ".otc" };       // Extensions for font files supported by the app
-        readonly string[,] pangram = new string[,]                                               // String array with pangrams and their short names
+        readonly string[,] pangram = new string[,]                                      // String array with pangrams and their short names (delete from code later)
         {
             {"RUS", "ENG", "1?*"},
             {"Съешь же ещё этих мягких французских булок, да выпей чаю.",
             "The quick brown fox jumps over the lazy dog.",
             "1234567890.,!?@#$%&№`\"^<>*-—~+=:;({[]})\\|/"}
         };
-
-        const int DEFAULT_FONT_SIZE = 16;                                               // Font size displayed at app start
         #endregion
 
         #region REQUIRED VARIABLES
@@ -33,7 +31,8 @@ namespace FontViewer
 
         List<string> folders = Settings.Default.fontFolders.Cast<string>().ToList();    // Setting for folder path
         PrivateFontCollection pfc;                                                      // Private font collection for storing the fonts of the currently open folder
-        int fontStyle = 0;                                                              // Stores information about the font style (enum System.Drawing.FontStyle)
+        FontStyle fontStyle = 0;                                                        // Stores information about the font style (enum System.Drawing.FontStyle)
+        int fontSize = 16;                                                              // Stores information about the font size
 
         FVPanel panel;                                                                  // Custom panel element used to display fonts
         #endregion
@@ -45,9 +44,10 @@ namespace FontViewer
             InitializeComponent();
             DeleteNonExistFolders();
             SetLocale(Settings.Default.locale);
+            RestoreState();
 
-            sizeSlider.Value = DEFAULT_FONT_SIZE;
-            sizeNumeric.Value = DEFAULT_FONT_SIZE;
+            sizeSlider.Value = fontSize;
+            sizeNumeric.Value = fontSize;
             textSample.TextChanged += textSample_TextChanged;
             sizeSlider.Scroll += sizeSlider_Scroll;
             sizeNumeric.ValueChanged += sizeNumeric_ValueChanged;
@@ -81,6 +81,54 @@ namespace FontViewer
             menuLanguageRussian.Text = lm.Get("menuLanguageRussian");
             tabNames[0] = lm.Get("menuShortTabNames");
             tabNames[1] = lm.Get("menuLongTabNames");
+        }
+
+        #endregion
+
+        #region WINDOW METHODS
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveState();
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            WindowState = Settings.Default.windowState;
+            Location = Settings.Default.windowLocation;
+            Size = Settings.Default.windowSize;
+        }
+
+        private void RestoreState()
+        {
+            fontSize = Settings.Default.fontSize;
+            fontStyle = Settings.Default.fontStyle;
+
+            if (fontStyle.HasFlag(FontStyle.Bold)) fontStyleButtonSwitch(boldButton);
+            if (fontStyle.HasFlag(FontStyle.Italic)) fontStyleButtonSwitch(italicButton);
+            if (fontStyle.HasFlag(FontStyle.Underline)) fontStyleButtonSwitch(underlineButton);
+            if (fontStyle.HasFlag(FontStyle.Strikeout)) fontStyleButtonSwitch(strikeoutButton);
+        }
+
+        private void SaveState()
+        {
+            Settings.Default.windowState = WindowState;
+
+            if (WindowState == FormWindowState.Normal)
+            {
+                Settings.Default.windowLocation = Location;
+                Settings.Default.windowSize = Size;
+            }
+            else
+            {
+                Settings.Default.windowLocation = RestoreBounds.Location;
+                Settings.Default.windowSize = RestoreBounds.Size;
+            }
+
+            Settings.Default.fontSize = sizeSlider.Value;
+            Settings.Default.fontStyle = fontStyle;
+
+            Settings.Default.Save();
         }
 
         #endregion
@@ -188,19 +236,31 @@ namespace FontViewer
             return new DirectoryInfo(s).Name;
         }
 
-        private void fontStyleButtonPress(Button button, int number) //
+        private void fontStyleButtonSwitch(Button button)
         {
             if (button.Tag.ToString() == "Unpressed")
             {
-                fontStyle += number;
                 button.BackColor = Color.LightGray;
                 button.Tag = "Pressed";
             }
             else
             {
-                fontStyle -= number;
                 button.BackColor = Color.White;
                 button.Tag = "Unpressed";
+            }
+        }
+
+        private void fontStyleButtonPress(Button button, int number)
+        {
+            if (button.Tag.ToString() == "Unpressed")
+            {
+                fontStyle += number;
+                fontStyleButtonSwitch(button);
+            }
+            else
+            {
+                fontStyle -= number;
+                fontStyleButtonSwitch(button); ;
             }
             if (panel != null) panel.FontStyle = fontStyle;
         }
